@@ -1,0 +1,17 @@
+{% extends "homepage.html" %}
+{% block content %}
+{% load static %}
+<form action='' method="post">{% csrf_token %}
+    <div class="mb-3">
+      {{search_form.name}}
+    </div>
+    <select for={{search_form.type_of_search}} class="form-select" aria-label="Default select example">
+        <option selected>Opciones</option>
+        <option value="movie">película</option>
+        <option value="director">director</option>
+        <option value="country">país</option>
+        <option value="productioncompany">productora</option>
+      </select>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+{% endblock %}

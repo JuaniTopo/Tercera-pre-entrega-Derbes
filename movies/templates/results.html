@@ -1,0 +1,46 @@
+{% extends "homepage.html" %}
+{% block content %}
+{% load static %}
+
+{% if type == "movie" %}
+<ul>
+    {% for movie in results %}
+        <li>{{ movie.title }}</li>
+        <li>{{ movie.director.name }}{{ movie.director.surname }}</li>
+        <li>{{ movie.genre }}</li>
+        <li>{{ movie.score }}</li>
+        <li>{{ movie.production_company.name }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if type == "country" %}
+<ul>
+    {% for country in results %}
+        <li>{{ country.name }}</li>
+        <li>{{ country.fundation_date }}{{ movie.director.surname }}</li>
+        <li>{{ country.continent }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if type == "director" %}
+<ul>
+    {% for director in results %}
+        <li>{{ director.name }} {{ director.surname }}</li>
+        <li>{{ director.birthday }}</li>
+        <li>{{ director.country.name }}</li>
+    {% endfor %}
+</ul>{% endif %}
+
+{% if type == "productioncompany" %}
+<ul>
+    {% for production_company in results %}
+        <li>{{ production_company.name }}</li>
+        <li>{{ production_company.country_of_origin }}</li>
+        <li>{{ production_company.foundation_date }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
